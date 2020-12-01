@@ -53,12 +53,12 @@ if [ -d /data/Core_Dll/ ]; then
     fi
 fi
 sleep 1
-echo "+ BDXCore & Chakra Dll & Libs..."
-if [ -d /data/Core_Dll/ ]; then
-    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/bdxcore.zip
-    unzip bdxcore.zip -d /data/Core_Dll/
-    if [ -f '/data/Core_Dll/BDXCORE.dll' ]; then
-        rm bdxcore.zip
+echo "+ BDXCore Mod Dlls..."
+if [ -d /data/Plugin_Files/bdxcore_mod/ ]; then
+    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/bdxcore_mod.zip
+    unzip bdxcore.zip -d /data/Plugin_Files/bdxcore_mod/
+    if [ -f '/data/Plugin_Files/bdxcore_mod/BDSNetRunner.dll' ]; then
+        rm bdxcore_mod.zip
         echo "> Done!"
     fi
 fi
