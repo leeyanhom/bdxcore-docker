@@ -63,3 +63,43 @@ if [ -d /data/Plugin_Files/bdxcore_mod/ ]; then
     fi
 fi
 sleep 1
+echo "+ BDSNetRunner Mod Dlls..."
+if [ -d /data/Plugin_Files/csr/ ]; then
+    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/csr.zip
+    unzip csr.zip -d /data/Plugin_Files/csr/
+    if [ -f '/data/Plugin_Files/csr/ClearScript.Core.dll' ]; then
+        rm csr.zip
+        echo "> Done!"
+    fi
+fi
+sleep 1
+echo "+ BDSNETJS Mod Dlls..."
+if [ -d /data/Plugin_Files/netjs/ ]; then
+    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/netjs.zip
+    unzip netjs.zip -d /data/Plugin_Files/netjs/
+    if [ -f '/data/Plugin_Files/netjs/visitor.js' ]; then
+        rm netjs.zip
+        echo "> Done!"
+    fi
+fi
+sleep 2
+echo ""
+echo "[Step 4] Installing Runtimes..."
+echo "==================================="
+echo ""
+sleep 2
+echo "+ Getting Runtimes..."
+wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/runtimes.zip
+unzip runtimes.zip -d /data/Core_Dll/
+if [ -f '/data/Core_Dll/vcruntime140_1.dll' ]; then
+    rm runtimes.zip
+    echo "> Done!"
+fi
+sleep 2
+echo ""
+echo "[Step 5] Creating Symlinks..."
+echo "==================================="
+echo ""
+sleep 2
+echo "+ Behavior & Resource Packs Symlink..."
+rsync -r /opt/bdxcore/behavior_packs/* /data/behavior_packs/
