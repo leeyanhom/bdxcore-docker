@@ -43,6 +43,23 @@ echo "[Step 3] Installing Necessary Libraries..."
 echo "=============================================="
 echo ""
 sleep 2
-echo "+ BDXC & Chakra Dll & Libs..."
+echo "+ BDXCore & Chakra Dll & Libs..."
 if [ -d /data/Core_Dll/ ]; then
-    wget 
+    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/bdxcore.zip
+    unzip bdxcore.zip -d /data/Core_Dll/
+    if [ -f '/data/Core_Dll/BDXCORE.dll' ]; then
+        rm bdxcore.zip
+        echo "> Done!"
+    fi
+fi
+sleep 1
+echo "+ BDXCore & Chakra Dll & Libs..."
+if [ -d /data/Core_Dll/ ]; then
+    wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/bdxcore.zip
+    unzip bdxcore.zip -d /data/Core_Dll/
+    if [ -f '/data/Core_Dll/BDXCORE.dll' ]; then
+        rm bdxcore.zip
+        echo "> Done!"
+    fi
+fi
+sleep 1
