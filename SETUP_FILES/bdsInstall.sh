@@ -56,7 +56,7 @@ sleep 1
 echo "+ BDXCore Mod Dlls..."
 if [ -d /data/Plugin_Files/bdxcore_mod/ ]; then
     wget https://raw.githubusercontent.com/substicious/bdxcore-docker/master/setup_assets/bdxcore_mod.zip
-    unzip bdxcore.zip -d /data/Plugin_Files/bdxcore_mod/
+    unzip bdxcore_mod.zip -d /data/Plugin_Files/bdxcore_mod/
     if [ -f '/data/Plugin_Files/bdxcore_mod/BDSNetRunner.dll' ]; then
         rm bdxcore_mod.zip
         echo "> Done!"
